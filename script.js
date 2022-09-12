@@ -12,13 +12,16 @@ const btnHold = document.querySelector('.btn--hold');
 const player0Name = document.querySelector('.name0');
 const player1Name = document.querySelector('.name1');
 const overly1 = document.querySelector('.overlay');
+const overly2 = document.querySelector('.overlay1');
 const overForm = document.querySelector('.form');
+const overForm1 = document.querySelector('.form1');
 const button1 = document.querySelector('.button');
 const input1 = document.querySelector('.input');
 const input2 = document.querySelector('.input1');
+const SetNum = document.querySelector('.setNum');
+const inpSet = document.querySelector('.set');
 
-
-let scores, currentScore, activePlayer, playing;
+let scores, currentScore, activePlayer, playing, vl;
 
 // window.onload = function () {
 //   overly1.classList.remove('hidden');
@@ -26,20 +29,22 @@ let scores, currentScore, activePlayer, playing;
 // };
 
 button1.addEventListener('click', function (event) {
-    
-      
-  if(event.target.textContent === 'PLAY'){
-      overly1.classList.add('hidden');
-      overForm.classList.add('hidden');
-      player0Name.innerHTML = input1.value;  
-      if(player0Name != " " ){
-         player1Name.innerHTML = input2.value;  
-      }
-    
+  if (event.target.textContent === 'PLAY') {
+    overly1.classList.add('hidden');
+    overForm.classList.add('hidden');
+    player0Name.innerHTML = input1.value;
+
+    player1Name.innerHTML = input2.value;
   }
   event.preventDefault();
 });
-
+//Set winning number
+inpSet.addEventListener('click', function (event) {
+  vl = SetNum.value;
+  overForm1.classList.add('hidden');
+  overly2.classList.add('hidden');
+  event.preventDefault();
+});
 
 //Start condition
 const init = function () {
@@ -58,6 +63,10 @@ const init = function () {
   player1El.classList.remove('player--winner');
   player0El.classList.add('player--active');
   player1El.classList.remove('player--active');
+
+  vl = SetNum.value;
+  overForm1.classList.toggle('hidden');
+  overly2.classList.toggle('hidden');
 };
 init();
 
@@ -96,7 +105,7 @@ btnHold.addEventListener('click', function () {
     document.getElementById(`score--${activePlayer}`).textContent =
       scores[activePlayer];
     //Finish the game
-    if (scores[activePlayer] >= 100) {
+    if (scores[activePlayer] >= vl) {
       playing = false;
       diceEl.classList.add('hidden');
       document.getElementById(`current--${activePlayer}`).textContent = 0;
@@ -111,4 +120,5 @@ btnHold.addEventListener('click', function () {
     }
   }
 });
+
 btnNew.addEventListener('click', init);

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
 
 * {
   margin: 0;
@@ -12,7 +12,7 @@ html {
 }
 
 body {
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-weight: 400;
   height: 100vh;
   color: #333;
@@ -46,8 +46,12 @@ main {
   flex-direction: column;
   align-items: center;
   transition: all 0.75s;
+  background-repeat:repeat-y;
+  background-position: center;
+  
+  
+  
 }
-
 /* ELEMENTS */
 .name0 {
   position: relative;
@@ -170,7 +174,7 @@ main {
 }
 
 .player--winner {
-  background-color: #2f2f2f;
+  background-image: url(win.jpg);
 }
 
 .player--winner .name {
@@ -181,18 +185,17 @@ main {
   display: none;
 }
 
-
 /*login form */
 .form {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   position: absolute;
   z-index: 15;
   background: linear-gradient(
     90deg,
-    rgb(29, 201, 236)  0%,
+    rgb(29, 201, 236) 0%,
     rgba(177, 188, 196, 0.83) 0%,
     rgb(236, 139, 139) 100%
-  ); 
+  );
   opacity: 99%;
   max-width: 260px;
   margin: 200px auto 100px;
@@ -250,12 +253,97 @@ main {
   color: #06c5cf;
   text-decoration: none;
 }
-.overlay{
+.overlay {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.01);
+  backdrop-filter: blur(10px);
+  filter: blur();
+}
+.overlay1 {
   position: absolute;
   height: 100vh;
   width: 100vw;
   z-index: 5;
-   background-color: rgba(255, 255, 255, 0.01);
-  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.01);
+  backdrop-filter: blur(3px);
   filter: blur();
+}
+.small {
+  color: red;
+  font-size: 10px;
+}
+.small_1 {
+  color: red;
+  font-size: 15px;
+}
+
+/* From-2 */
+.form1 {
+  font-family: "Roboto", sans-serif;
+  position: absolute;
+  z-index: 10;
+  background: linear-gradient(
+    90deg,
+    rgb(29, 201, 236) 0%,
+    rgba(177, 188, 196, 0.83) 0%,
+    rgb(236, 139, 139) 100%
+  );
+  opacity: 99%;
+  max-width: 260px;
+  margin: 200px auto 100px;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  border-radius: 10px;
+  bottom: 30%;
+  left: 40%;
+}
+.form1 input {
+  outline: 0;
+  border-radius: 10px;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.form1 input:hover {
+  background-color: #d3f8f9;
+  transition: all 1s ease 0s;
+}
+.form1 input:focus {
+  background-color: #d3f8f9;
+  transition: all 1s ease 0s;
+}
+.form1 button {
+  text-transform: uppercase;
+  outline: 0;
+  border-radius: 10px;
+  background-color: #c7365f;
+  width: 80%;
+  border: 0;
+  padding: 15px;
+  color: #ffffff;
+  font-size: 14px;
+  cursor: pointer;
+}
+.form1 button:hover,
+.form1 button:active,
+.form1 button:focus {
+  background-color: #06c5cf;
+  transition: all 1s ease 0s;
+}
+.form1 .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+.form1 .message a {
+  color: #06c5cf;
+  text-decoration: none;
 }
